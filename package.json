@@ -17,34 +17,75 @@
   ],
   "type": "module",
   "scripts": {
+    "dev": "react-router dev",
     "fix": "wireit",
     "test": "wireit"
   },
   "dependencies": {
+    "@react-router/node": "^7.5.0",
+    "isbot": "^5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.0"
   },
   "devDependencies": {
+    "@react-router/dev": "^7.5.0",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
     "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.5",
+    "vite-tsconfig-paths": "^5.1.4",
     "wireit": "^0.14.11"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
   },
   "wireit": {
     "fix": {
-      "command": "prettier --cache --write '*.md' '.github/workflows/*.yml'"
+      "command": "prettier --cache --write '*.{md,ts}' '.github/workflows/*.yml' 'app/**/*'"
     },
     "test": {
       "dependencies": [
-        "test:format"
+        "test:format",
+        "test:types"
       ]
     },
     "test:format": {
-      "command": "prettier --cache --check '*.md' '.github/workflows/*.yml'",
+      "command": "prettier --cache --check '*.{md,ts}' '.github/workflows/*.yml' 'app/**/*'",
       "files": [
-        "*.md",
-        ".github/workflows/*.yml"
+        "*.{md,ts}",
+        ".github/workflows/*.yml",
+        "app/**/*"
       ],
       "output": []
+    },
+    "test:types": {
+      "command": "tsc",
+      "files": [
+        "app/**/*.{ts,tsx}",
+        "*.ts",
+        "tsconfig.json"
+      ],
+      "output": [],
+      "dependencies": [
+        "typegen"
+      ]
+    },
+    "typegen": {
+      "command": "react-router typegen",
+      "files": [
+        "app/routes.ts",
+        "app/routes/**/*.tsx",
+        "!app/routes/**/*.test.tsx"
+      ],
+      "output": [
+        ".react-router/**/*.d.ts"
+      ]
     }
   }
 }
