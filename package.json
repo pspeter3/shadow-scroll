@@ -31,7 +31,7 @@
   },
   "wireit": {
     "fix": {
-      "command": "prettier --cache --write '*.md'"
+      "command": "prettier --cache --write '*.md' '.github/workflows/*.yml'"
     },
     "test": {
       "dependencies": [
@@ -39,9 +39,10 @@
       ]
     },
     "test:format": {
-      "command": "prettier --cache --check '*.md'",
+      "command": "prettier --cache --check '*.md' '.github/workflows/*.yml'",
       "files": [
-        "*.md"
+        "*.md",
+        ".github/workflows/*.yml"
       ],
       "output": []
     }
