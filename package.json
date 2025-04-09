@@ -17,7 +17,8 @@
   ],
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fix": "wireit",
+    "test": "wireit"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -25,6 +26,24 @@
     "react-router": "^7.5.0"
   },
   "devDependencies": {
+    "prettier": "^3.5.3",
     "wireit": "^0.14.11"
+  },
+  "wireit": {
+    "fix": {
+      "command": "prettier --cache --write '*.md'"
+    },
+    "test": {
+      "dependencies": [
+        "test:format"
+      ]
+    },
+    "test:format": {
+      "command": "prettier --cache --check '*.md'",
+      "files": [
+        "*.md"
+      ],
+      "output": []
+    }
   }
 }
