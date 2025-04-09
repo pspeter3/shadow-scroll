@@ -1,0 +1,22 @@
+{
+  "name": "shadow-scroll",
+  "description": "Digital Shadowdark character sheet",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://github.com/pspeter3/shadow-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/pspeter3/shadow-scroll/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pspeter3/shadow-scroll.git"
+  },
+  "keywords": [
+    "shadowdark",
+    "ttrpg"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
