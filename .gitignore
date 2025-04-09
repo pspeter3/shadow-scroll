@@ -1,0 +1,10 @@
+# Build
+.wireit/
+.react-router/
+build/
+
+# Dependencies
+node_modules/
+
+# Test
+coverage/
