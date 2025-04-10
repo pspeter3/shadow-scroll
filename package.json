@@ -17,6 +17,7 @@
   ],
   "type": "module",
   "scripts": {
+    "build": "wireit",
     "dev": "react-router dev",
     "fix": "wireit",
     "test": "wireit"
@@ -56,6 +57,9 @@
     ]
   },
   "wireit": {
+    "build": {
+      "command": "NODE_ENV=production react-router build"
+    },
     "fix": {
       "command": "prettier --cache --write '*.{md,ts}' '.github/workflows/*.yml' 'app/**/*'"
     },
